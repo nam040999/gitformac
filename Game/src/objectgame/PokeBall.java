@@ -14,14 +14,14 @@ import util.Resource;
  *
  * @author hainam
  */
-public class Cactus extends Enemi {
+public class PokeBall extends Enemi {
     private BufferedImage image;
     private int posX, posY;
     private Rectangle rect;
     private MainCharacter mainCharacter;
     private boolean isScoreGot = false;
     
-    public Cactus(MainCharacter mainCharacter){
+    public PokeBall(MainCharacter mainCharacter){
         this.mainCharacter = mainCharacter;
         image = Resource.getResourceImage("data/ct1.png");
         posX = 300;

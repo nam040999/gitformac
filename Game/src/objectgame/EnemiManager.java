@@ -21,7 +21,7 @@ public class EnemiManager {
     private List<Enemi> enemies;
     private Random random;
     
-    private BufferedImage imageCactus1, imageCactus2; 
+    private BufferedImage imagePokeBall1, imagePokeBall2; 
     private MainCharacter mainCharacter;
     private GameScreen gameScreen;
     
@@ -29,10 +29,10 @@ public class EnemiManager {
         this.mainCharacter = mainCharacter;
         this.gameScreen = gameScreen;
         enemies = new ArrayList<Enemi>();
-        imageCactus1= Resource.getResourceImage("data/ct1.png");
-        imageCactus2= Resource.getResourceImage("data/ct2.png");
+        imagePokeBall1= Resource.getResourceImage("data/ct1.png");
+        imagePokeBall2= Resource.getResourceImage("data/ct2.png");
         random = new Random();
-        enemies.add(getRandomCactus());
+        enemies.add(getRandomPokeBall());
       
     }  
     
@@ -50,7 +50,7 @@ public class EnemiManager {
         Enemi firstEnemi = enemies.get(0);
         if (enemies.get(0).isOutOfScreen()){
             enemies.remove(firstEnemi);
-            enemies.add(getRandomCactus());
+            enemies.add(getRandomPokeBall());
         }
     
     }
@@ -64,19 +64,19 @@ public class EnemiManager {
     
     public void reset(){
         enemies.clear();
-        enemies.add(getRandomCactus());
+        enemies.add(getRandomPokeBall());
     }
     
-    private Cactus getRandomCactus(){
-        Cactus cactus;
-        cactus = new Cactus(mainCharacter);
-        cactus.setX(1400);
+    private PokeBall getRandomPokeBall(){
+        PokeBall pokeBall;
+        pokeBall = new PokeBall(mainCharacter);
+        pokeBall.setX(1400);
         if(random.nextBoolean()){
-            cactus.setImage(imageCactus1);
+            pokeBall.setImage(imagePokeBall1);
         }else { 
-            cactus.setImage(imageCactus2);
+            pokeBall.setImage(imagePokeBall2);
             
         }
-        return cactus;
+        return pokeBall;
     }
 } 
